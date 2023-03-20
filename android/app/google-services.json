@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1096335379004",
+    "project_id": "photography-app-2fa2f",
+    "storage_bucket": "photography-app-2fa2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096335379004:android:76b70874cc83750b825139",
+        "android_client_info": {
+          "package_name": "com.myusuf.photography_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096335379004-o6vfd3ilf2e391un3hjv9tu841lkaapa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myusuf.photography_app",
+            "certificate_hash": "b5ee9473f84af245bf42129ce4bec3afaa2df918"
+          }
+        },
+        {
+          "client_id": "1096335379004-7e1jsv197ngieqk7kmavbgstns2k3bit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiO57G2ezrvjzC7o4cxpcB2su3MelSzVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096335379004-7e1jsv197ngieqk7kmavbgstns2k3bit.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1096335379004-mrt50omaov56gh5hvvdqvq79j6p4q9tp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.photographyApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

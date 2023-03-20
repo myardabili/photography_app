@@ -1,0 +1,15 @@
+{
+    "openai_key": "",
+    "modules": [
+        "login",
+        "register",
+        "dashboard",
+        "detail_product",
+        "profile",
+        "splash",
+        "order",
+        "cart",
+        "main_navigation",
+        "input_data"
+    ]
+}
