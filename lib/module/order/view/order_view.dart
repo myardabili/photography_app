@@ -3,10 +3,18 @@ import 'package:photography_app/module/shared/colors.dart';
 import 'package:photography_app/core.dart';
 
 class OrderView extends StatefulWidget {
-  const OrderView({Key? key}) : super(key: key);
+  var price;
+  var category;
+  OrderView({
+    Key? key,
+    required this.price,
+    required this.category,
+  }) : super(key: key);
 
   Widget build(context, OrderController controller) {
     controller.view = this;
+    controller.price = price;
+    controller.category = category;
 
     return Scaffold(
       appBar: AppBar(
@@ -15,7 +23,7 @@ class OrderView extends StatefulWidget {
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Colors.white,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -24,7 +32,7 @@ class OrderView extends StatefulWidget {
         title: const Text(
           'Order',
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
       ),
@@ -38,7 +46,9 @@ class OrderView extends StatefulWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ReuTextField(
                   label: "Masukan Nama",
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    controller.name = value;
+                  },
                 ),
               ),
               const SizedBox(
@@ -48,7 +58,9 @@ class OrderView extends StatefulWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ReuTextField(
                   label: "Masukan No.telp",
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    controller.phone = value;
+                  },
                 ),
               ),
               const SizedBox(
@@ -58,7 +70,9 @@ class OrderView extends StatefulWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ReuTextField(
                   label: "Masukan Tempat",
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    controller.location = value;
+                  },
                 ),
               ),
               const SizedBox(
@@ -68,51 +82,11 @@ class OrderView extends StatefulWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ReuDatePicker(
                   label: "Waktu",
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    controller.date = value.toString();
+                  },
                 ),
               ),
-              const SizedBox(
-                height: 12,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: ReuTimePicker(
-                  label: "Pilih Jam",
-                  onChanged: (value) {},
-                ),
-              ),
-              // const SizedBox(
-              //   height: 12.0,
-              // ),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              //   child: Row(
-              //     children: [
-              //       Flexible(
-              //         flex: 1,
-              //         fit: FlexFit.tight,
-              //         child: SizedBox(
-              //           height: 50,
-              //           child: ElevatedButton(
-              //             style: ElevatedButton.styleFrom(
-              //                 shape: RoundedRectangleBorder(
-              //                   borderRadius: BorderRadius.circular(12),
-              //                 ),
-              //                 backgroundColor: ColorsApp.mainColor),
-              //             onPressed: () {
-              //               Navigator.of(context).push(
-              //                 MaterialPageRoute(
-              //                     builder: (context) =>
-              //                         const SnapWebViewScreen()),
-              //               );
-              //             },
-              //             child: const Text('Bayar'),
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -128,13 +102,7 @@ class OrderView extends StatefulWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
           ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const SnapWebViewScreen()),
-            );
-          },
+          onPressed: () => controller.doSave(),
           child: const Text(
             "Bayar",
             style: TextStyle(fontSize: 20),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:photography_app/module/shared/colors.dart';
 import 'package:photography_app/core.dart';
 import 'package:get/get.dart';
 
 class DetailProductView extends StatelessWidget {
   final Map item;
+
   const DetailProductView({
     Key? key,
     required this.item,
@@ -94,7 +94,7 @@ class DetailProductView extends StatelessWidget {
                             ),
                             const Spacer(),
                             Text(
-                              item["price"],
+                              item["price"].toString(),
                               style: const TextStyle(
                                 fontSize: 20.0,
                                 fontWeight: FontWeight.bold,
@@ -123,11 +123,14 @@ class DetailProductView extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const OrderView()),
+                  MaterialPageRoute(
+                      builder: (context) => OrderView(
+                          price: item["price"].toString(),
+                          category: item["name"])),
                 );
               },
               child: const Text(
-                "Book Now",
+                "Pesan",
                 style: TextStyle(fontSize: 20),
               ),
             ),

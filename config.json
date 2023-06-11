@@ -9,7 +9,13 @@
         "splash",
         "order",
         "cart",
+        "history",
         "main_navigation",
-        "input_data"
+        "input_data",
+        "admin/adm_dashboard",
+        "admin/adm_order",
+        "admin/adm_main_navigation",
+        "admin/adm_input_data",
+        "admin/adm_profile"
     ]
 }

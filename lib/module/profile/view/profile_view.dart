@@ -1,7 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:photography_app/module/shared/colors.dart';
 import 'package:photography_app/core.dart';
-import '../controller/profile_controller.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -14,28 +13,28 @@ class ProfileView extends StatefulWidget {
         centerTitle: true,
         backgroundColor: ColorsApp.mainColor,
         title: const Text("Profile"),
-        actions: const [],
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Container(
+          margin: const EdgeInsets.only(
+            top: 20.0,
+          ),
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
               SizedBox(
                 child: CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  radius: 40,
-                  child: Icon(
-                    Icons.person,
-                    size: 50,
-                    color: ColorsApp.mainColor,
+                  backgroundImage: NetworkImage(
+                    FirebaseAuth.instance.currentUser!.photoURL ??
+                        "https://i.ibb.co/S32HNjD/no-image.jpg",
                   ),
+                  radius: 40,
                 ),
               ),
               const SizedBox(
                 height: 24.0,
               ),
-
               const Divider(),
               ListTile(
                 leading: Container(
@@ -50,7 +49,9 @@ class ProfileView extends StatefulWidget {
                     color: ColorsApp.mainColor,
                   ),
                 ),
-                title: const Text("Muhammad Yusuf Ardabili"),
+                title: Text(
+                  controller.getNamaWidget().toString(),
+                ),
               ),
               ListTile(
                 leading: Container(
@@ -65,7 +66,9 @@ class ProfileView extends StatefulWidget {
                     color: ColorsApp.mainColor,
                   ),
                 ),
-                title: const Text("082242906985"),
+                title: Text(
+                  controller.getPhoneWidget().toString(),
+                ),
               ),
               ListTile(
                 leading: Container(
@@ -80,39 +83,11 @@ class ProfileView extends StatefulWidget {
                     color: ColorsApp.mainColor,
                   ),
                 ),
-                title: const Text("muhammadyusufnew16@gmail.com"),
+                title: Text("${FirebaseAuth.instance.currentUser!.email}"),
               ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorsApp.mainColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      )),
-                  child: const Text("Edit Profile"),
-                ),
+              const SizedBox(
+                height: 30.0,
               ),
-              // const SizedBox(
-              //   height: 18.0,
-              // ),
-              ListTile(
-                leading: Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Colors.grey.withOpacity(0.2),
-                  ),
-                  child: Icon(
-                    Icons.delete_outline_rounded,
-                    color: ColorsApp.mainColor,
-                  ),
-                ),
-                title: const Text("Delete Account"),
-              ),
-
               InkWell(
                 onTap: () => controller.doLogout(),
                 child: ListTile(

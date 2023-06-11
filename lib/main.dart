@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       home: FirebaseAuth.instance.currentUser == null
           ? const SplashView()
           : const MainNavigationView(),
-      // home: RegisterView(),
+      // home: const AdmMainNavigationView(),
       // home: const InputDataView(),
     );
   }

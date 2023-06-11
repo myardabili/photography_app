@@ -107,212 +107,196 @@ class _RegisterViewState extends State<RegisterView> {
                         ],
                       ),
                       const Spacer(),
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 4,
-                            child: Form(
-                              key: _formKey,
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 14.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: TextFormField(
-                                          controller: nameC,
-                                          keyboardType: TextInputType.name,
-                                          textInputAction: TextInputAction.next,
-                                          decoration: const InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: "Nama Lengkap",
-                                          ),
-                                          validator: _requeiredValidator,
-                                        ),
-                                      ),
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 14.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20.0),
+                                  child: TextFormField(
+                                    controller: nameC,
+                                    keyboardType: TextInputType.name,
+                                    textInputAction: TextInputAction.next,
+                                    decoration: const InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Nama Lengkap",
                                     ),
+                                    validator: _requeiredValidator,
                                   ),
-                                  const SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 14.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: TextFormField(
-                                          controller: no_tlpC,
-                                          keyboardType: TextInputType.number,
-                                          textInputAction: TextInputAction.next,
-                                          decoration: const InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: "Nomor Telepon",
-                                            // prefixIcon: Icon(Icons.person),
-                                          ),
-                                          validator: _requeiredValidator,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 14.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: TextFormField(
-                                          controller: emailC,
-                                          keyboardType:
-                                              TextInputType.emailAddress,
-                                          textInputAction: TextInputAction.next,
-                                          decoration: const InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: "Email",
-                                          ),
-                                          validator: _requeiredValidator,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 14.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: TextFormField(
-                                          controller: passwdC,
-                                          textInputAction: TextInputAction.done,
-                                          obscureText: true,
-                                          decoration: const InputDecoration(
-                                            hintText: "Password",
-                                            border: InputBorder.none,
-                                          ),
-                                          validator: _requeiredValidator,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 12.0,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 14.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: TextFormField(
-                                          controller: confPasswdC,
-                                          textInputAction: TextInputAction.done,
-                                          obscureText: true,
-                                          decoration: const InputDecoration(
-                                              hintText: "Konfirmasi Password",
-                                              border: InputBorder.none),
-                                          validator: _requeiredConfirmValidator,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 20.0,
-                                  ),
-                                  if (loading) ...[
-                                    const Center(
-                                      child: CircularProgressIndicator(),
-                                    )
-                                  ],
-                                  if (!loading) ...[
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 14.0),
-                                      child: Row(
-                                        children: [
-                                          Flexible(
-                                            flex: 1,
-                                            fit: FlexFit.tight,
-                                            child: SizedBox(
-                                              height: 50,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12),
-                                                  ),
-                                                  backgroundColor:
-                                                      ColorsApp.mainColor,
-                                                ),
-                                                onPressed: () {
-                                                  if (_formKey.currentState !=
-                                                          null &&
-                                                      _formKey.currentState!
-                                                          .validate()) {
-                                                    sigUp();
-                                                  }
-                                                },
-                                                child: const Text("Sign Up"),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(
+                              height: 12.0,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 14.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: TextFormField(
+                                    controller: no_tlpC,
+                                    keyboardType: TextInputType.number,
+                                    textInputAction: TextInputAction.next,
+                                    decoration: const InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Nomor Telepon",
+                                      // prefixIcon: Icon(Icons.person),
+                                    ),
+                                    validator: _requeiredValidator,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 12.0,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 14.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: TextFormField(
+                                    controller: emailC,
+                                    keyboardType: TextInputType.emailAddress,
+                                    textInputAction: TextInputAction.next,
+                                    decoration: const InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Email",
+                                    ),
+                                    validator: _requeiredValidator,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 12.0,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 14.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: TextFormField(
+                                    controller: passwdC,
+                                    textInputAction: TextInputAction.done,
+                                    obscureText: true,
+                                    decoration: const InputDecoration(
+                                      hintText: "Password",
+                                      border: InputBorder.none,
+                                    ),
+                                    validator: _requeiredValidator,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 12.0,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 14.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20.0),
+                                  child: TextFormField(
+                                    controller: confPasswdC,
+                                    textInputAction: TextInputAction.done,
+                                    obscureText: true,
+                                    decoration: const InputDecoration(
+                                        hintText: "Konfirmasi Password",
+                                        border: InputBorder.none),
+                                    validator: _requeiredConfirmValidator,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            if (loading) ...[
+                              const Center(
+                                child: CircularProgressIndicator(),
+                              )
+                            ],
+                            if (!loading) ...[
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 14.0),
+                                child: Row(
+                                  children: [
+                                    Flexible(
+                                      flex: 1,
+                                      fit: FlexFit.tight,
+                                      child: SizedBox(
+                                        height: 50,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                            backgroundColor:
+                                                ColorsApp.mainColor,
+                                          ),
+                                          onPressed: () {
+                                            if (_formKey.currentState != null &&
+                                                _formKey.currentState!
+                                                    .validate()) {
+                                              sigUp();
+                                            }
+                                          },
+                                          child: const Text("Sign Up"),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
                       ),
-                      const SizedBox(
-                        height: 50,
+                      const Spacer(
+                        flex: 3,
                       ),
-                      const Spacer(),
                     ],
                   ),
                 ),
